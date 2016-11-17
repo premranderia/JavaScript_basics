@@ -19,7 +19,12 @@ function isPalindrome(word) {
 	}
 	return result
 }
-
+// The above function is not optimal. 
+//If the size of the word is n then you are creating a buffer arr of the same size
+// Secondly to check if its a palindrome you just need to loop n/2, eg: kayak you will compare 
+// Always check for null, undefined, and if the input argument is of the data type you want, (in your case it should be string)
+// 1) first with last 2) Second with second last while in your loop you are comparing that + the reverse of it
+// From Javascript: Its a good idea to use ES6: 1) const/let instead of var 2) try to have 2 tab space and not 4
 console.log(isPalindrome('cook'))
 console.log(isPalindrome('KaYAk'))
 console.log(isPalindrome('A but tuba'))
