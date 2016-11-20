@@ -19,7 +19,12 @@ function isPalindrome(word) {
 	}
 	return result
 }
-
+// The above function is not optimal. 
+//If the size of the word is n then you are creating a buffer arr of the same size
+// Secondly to check if its a palindrome you just need to loop n/2, eg: kayak you will compare 
+// Always check for null, undefined, and if the input argument is of the data type you want, (in your case it should be string)
+// 1) first with last 2) Second with second last while in your loop you are comparing that + the reverse of it
+// From Javascript: Its a good idea to use ES6: 1) const/let instead of var 2) try to have 2 tab space and not 4
 console.log(isPalindrome('cook'))
 console.log(isPalindrome('KaYAk'))
 console.log(isPalindrome('A but tuba'))
@@ -32,7 +37,7 @@ replaceLetters('muhaaa') //muh***
 function replaceLetters(word) {
 	var arr = word.match(/([a-zA-Z])\1*/g)
 	var astricks = ''
-	
+
 	for (var i = 0; i < arr.length; i++) {
 		astricks = ''
 		if (arr[i].length > 1) {
@@ -44,6 +49,8 @@ function replaceLetters(word) {
 	}
 	return arr.join('')
 }
+// This is not optimal. Can you think more ?
+// Also not sure why are you doing this var arr = word.match(/([a-zA-Z])\1*/g)
 
 console.log(replaceLetters('parallel'))
 console.log(replaceLetters('muhaaa'))
@@ -85,6 +92,9 @@ function repeatingLetters(char_li) {
 	return char_dic
 }
 
+// Can you optimize ? This is not optimal
+// After writing the code check for space and time complexity.
+
 console.log(repeatingLetters(['z', 'y', 'x', 'x', 'w', 'z', 'y', 'u', 'y', 'y']))
 console.log(repeatingLetters(['a', 'a', 'b', 'b', 'B', 'A', 'c', 'C', 'd', 'D']))
 
@@ -110,6 +120,9 @@ function shuffleArray(num_li) {
 	}
 	return shuffle_arr_li
 }
+
+// Can you think more ? Optimize ? Time and space complexity
+
 console.log(shuffleArray([1, 2, 3, 4, 5]))
 
 /*5.
@@ -122,23 +135,27 @@ calculate(2, 8, '/'); // 2 / 8 = 0.25
 */
 
 function calculate(num1, num2, opt) {
+	var result = undefined;
 	switch(opt) {
 		case '-':
-			return num1 - num2;
+			result = num1 - num2;
 			break;
 		case '+':
-			return num1 + num2;
+			result = num1 + num2;
 			break;		
 		case '*':
-			return num1 * num2;
+			result = num1 * num2;
 			break;
 		case '/':
-			return num1 / num2;
+			result = num1 / num2;
 			break;
 		default:
 			console.log('Invalid Operator')			
 	}
+	return result;
 }
+// Looks good
+// Ideally you should only have 1 return statement in your function
 
 console.log(calculate(2, 0, '+'))
 
@@ -157,6 +174,7 @@ function sumArray(ran_li) {
 	}
 	return sum
 }
+// Looks good :)
 console.log(sumArray([1, 2, 'a', 4, '7', 'b', 'c', 7, '20']))
 
 /*7.
@@ -193,8 +211,11 @@ function totalPaid(groceries, per) {
 
 	final_bill['total'] = total
 	final_bill['groceries'] = groceries
+	console.log(groceries, final_bill);
 	return final_bill
 }
+// FYI: You have modified the original reference to the argument groceries. Keep in mind you dont want to do that, assume its a function 
+// it takes input and give you output in this process none of my inputs should be modified
 
 var groceries = [
   { name: 'Orange Juice', price: 2.00 },
@@ -203,6 +224,7 @@ var groceries = [
   { name: 'Sugar', price: 1.75 }
 ]
 console.log(totalPaid(groceries, 9.5))
+<<<<<<< HEAD
 
 
 function shuffle (array) {
@@ -247,3 +269,5 @@ console.log(shuffle([1, 2, 3, 4, 5, 6]))
 
 
 
+=======
+>>>>>>> 7380cd6706034c1cc0c572925c7c03ce1ae7c10b
