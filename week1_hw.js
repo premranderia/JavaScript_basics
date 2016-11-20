@@ -29,6 +29,22 @@ console.log(isPalindrome('cook'))
 console.log(isPalindrome('KaYAk'))
 console.log(isPalindrome('A but tuba'))
 
+//updated palindrome function
+function palindrome(str) {
+  // Good luck!
+  let resultStr = str.replace(/[^a-zA-Z]+/g, "").toLowerCase();
+  let bool = true;
+  let numCompare = Math.floor(resultStr.length / 2); 
+
+  for(let i = 0; i < numCompare; i++) {
+  	if(resultStr[i] !== resultStr[resultStr.length - (i + 1)]) {
+  		bool = false;
+  		break
+  	} 
+  }
+  return bool;
+}
+
 /* 2.
 Write a function that takes a string and replace repeated characters
 replaceLetters('parallel') //para**el
