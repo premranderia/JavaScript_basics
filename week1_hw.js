@@ -31,7 +31,12 @@ console.log(isPalindrome('A but tuba'))
 
 //updated palindrome function
 function palindrome(str) {
+	// Check if str is a string or not and is defiend or not
+	if(!str || str === null) {
+		throw new Error('String should be defined');
+	}
   // Good luck!
+	// What is this regex doing ??
   let resultStr = str.replace(/[^a-zA-Z]+/g, "").toLowerCase();
   let bool = true;
   let numCompare = Math.floor(resultStr.length / 2); 
@@ -44,7 +49,9 @@ function palindrome(str) {
   }
   return bool;
 }
-
+// Looks good
+// Couple of things variable names matter in codes let bool = true; vs let isPalindrome = true;
+// resultStr.length is been used many times. Cache is let strLength = resultStr.length; // In this the way code does not calculates the length again and again
 /* 2.
 Write a function that takes a string and replace repeated characters
 replaceLetters('parallel') //para**el
